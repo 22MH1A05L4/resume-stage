@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Mail, Github, Zap, Cloud, Code, Users } from "lucide-react";
+import { Scene3D } from "./Scene3D";
 
 const DimensionLanding = () => {
   const [email, setEmail] = useState("");
@@ -17,18 +19,27 @@ const DimensionLanding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden relative">
+      {/* 3D Background Scene */}
+      <div className="absolute inset-0 opacity-60">
+        <Canvas camera={{ position: [0, 0, 8], fov: 75 }}>
+          <Suspense fallback={null}>
+            <Scene3D />
+          </Suspense>
+        </Canvas>
+      </div>
+
       {/* Background Effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
         
-        {/* Floating Particles */}
-        {Array.from({ length: 50 }).map((_, i) => (
+        {/* Enhanced Floating Particles */}
+        {Array.from({ length: 30 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-white/20 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
