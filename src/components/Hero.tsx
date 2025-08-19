@@ -26,7 +26,7 @@ const Hero = () => {
               
               <div className="space-y-2">
                 <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                  Full Stack Developer & Multi Cloud Solutions Engineer
+                  Full Stack Developer & Cloud Engineer
                 </p>
                 <p className="text-lg text-muted-foreground max-w-2xl">
                   Passionate about building scalable web applications and cloud solutions. 
