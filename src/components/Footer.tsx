@@ -34,7 +34,7 @@ const Footer = () => {
               Dhanush Srikakulapu
             </h3>
             <p className="text-muted-foreground max-w-md">
-              Full Stack Developer & Cloud Engineer passionate about creating innovative solutions 
+              Full Stack Developer & Multi Cloud Solutions Engineer passionate about creating innovative solutions 
               with modern technologies.
             </p>
           </div>
